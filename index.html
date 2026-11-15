@@ -3,31 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travesuras del Elfo Mágico</title>
+    <title>Travesuras del Elfo Mágico - La App</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #F9F9F7; }
-        header { text-align: center; padding: 40px 0; }
-        h1 { color: #D42426; }
-        h2 { color: #165B33; }
-        .content { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap; }
-        a { color: #165B33; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; color: #D42426; }
+        :root {
+            --red-navidad: #D42426;
+            --green-abeto: #165B33;
+            --bg-color: #F9F9F7;
+            --text-color: #333333;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-color); 
+            background-color: var(--bg-color);
+            margin: 0; 
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cabecera / Hero */
+        header { 
+            text-align: center; 
+            padding: 60px 20px 40px; 
+            background: linear-gradient(135deg, rgba(212,36,38,0.05) 0%, rgba(22,91,51,0.05) 100%);
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+        
+        header h1 { 
+            color: var(--red-navidad); 
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header h2 { 
+            color: var(--green-abeto); 
+            font-weight: normal;
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+
+        /* Botón falso de descarga */
+        .download-btn {
+            display: inline-block;
+            background-color: var(--green-abeto);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(22,91,51,0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            background-color: #114a29;
+        }
+
+        /* Contenido Principal */
+        .content { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03); 
+            margin-top: -20px;
+            position: relative;
+        }
+
+        /* Cuadrícula de características */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            color: var(--green-abeto);
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer y Enlaces Legales */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            margin-bottom: 15px; 
+            flex-wrap: wrap; 
+        }
+        
+        .footer-links a { 
+            color: var(--green-abeto); 
+            text-decoration: none; 
+            font-weight: 600; 
+        }
+        
+        .footer-links a:hover { 
+            color: var(--red-navidad); 
+            text-decoration: underline; 
+        }
+
+        .developer-badge {
+            display: inline-block;
+            background: #eee;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .content { padding: 25px; }
+            header h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>🎄 Travesuras del Elfo Mágico</h1>
+        <div class="container">
+            <h1>🎄 Travesuras del Elfo Mágico</h1>
+            <h2>La app que salva las mañanas de diciembre</h2>
+            <p style="max-width: 600px; margin: 20px auto; color: #555;">
+                Descubre decenas de ideas fáciles, organiza todo el mes en segundos con nuestro planificador automático y disfruta de la ilusión de tus peques sin estrés.
+            </p>
+            <a href="#descargar" class="download-btn" onclick="alert('La app estará disponible muy pronto en la App Store y Google Play.')">Próximamente en Tiendas</a>
+        </div>
     </header>
-    <div class="content">
-        <h2>La magia de la Navidad, sin estrés</h2>
-        <p>Descubre decenas de ideas, bromas y escenarios para tu elfo de Navidad. Organiza todo el mes de diciembre en minutos con nuestro planificador mágico y disfruta de las mañanas más ilusionantes con tus peques.</p>
-        <p><strong>Desarrollado por:</strong> Francisco M. Cazalla</p>
+
+    <div class="container">
+        <div class="content">
+            
+            <h2 style="text-align: center; color: var(--red-navidad); margin-bottom: 30px;">¿Por qué te encantará?</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Ideas Listas</h3>
+                    <p>Clasificadas por dificultad, con materiales que ya tienes en casa y paso a paso.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Calendario Mágico</h3>
+                    <p>Asigna travesuras a todo el mes automáticamente con un solo toque.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Privada (Offline)</h3>
+                    <p>Sin cuentas, sin internet y sin recolectar tus datos. Tus fotos se quedan en tu móvil.</p>
+                </div>
+            </div>
+
+            <hr style="border: none; border-top: 1px dashed #ddd; margin: 40px 0;">
+
+            <p style="text-align: center; font-style: italic; color: #666; max-width: 500px; margin: 0 auto;">
+                "Diseñada por padres, para padres. Porque la magia de la Navidad no debería suponer un dolor de cabeza a las 11 de la noche."
+            </p>
+
+            <footer>
+                <div class="footer-links">
+                    <a href="privacy.html">Política de Privacidad</a>
+                    <a href="terms.html">Términos y Condiciones</a>
+                    <a href="legal.html">Aviso Legal</a>
+                </div>
+                <div class="developer-badge">
+                    👨‍💻 Desarrollado con cariño por Francisco M. Cazalla
+                </div>
+            </footer>
+        </div>
     </div>
-    <div class="footer-links">
-        <a href="privacy.html">Política de Privacidad</a>
-        <a href="terms.html">Términos y Condiciones</a>
-        <a href="legal.html">Aviso Legal</a>
-    </div>
+
 </body>
 </html>
