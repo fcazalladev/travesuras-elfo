@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travesuras del Elfo Mágico - La App</title>
+    <style>
+        :root {
+            --red-navidad: #D42426;
+            --green-abeto: #165B33;
+            --bg-color: #F9F9F7;
+            --text-color: #333333;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Sección Hero (Cabecera Principal) */
+        .hero {
+            background: linear-gradient(135deg, var(--red-navidad) 0%, #8A1517 100%);
+            color: white;
+            padding: 5rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Copos de nieve decorativos en el fondo */
+        .hero::before {
+            content: '❄️ ❄️ ❄️';
+            position: absolute;
+            top: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            letter-spacing: 150px;
+            animation: float 10s infinite linear;
+        }
+
+        .hero-text {
+            max-width: 500px;
+            z-index: 1;
+        }
+
+        .logo-img {
+            width: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+        }
+
+        .download-btn {
+            background-color: white;
+            color: var(--red-navidad);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+        }
+
+        .hero-mockup img {
+            max-width: 320px;
+            border-radius: 35px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            transform: rotate(-3deg);
+            transition: transform 0.4s ease;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-mockup img:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        /* Sección de Características */
+        .features-section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            color: var(--green-abeto);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-section > p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+
+        .feature-card h3 {
+            color: var(--red-navidad);
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+        }
+
+        .feature-card p {
+            color: #555;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background-color: white;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .footer-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-bottom: 20px; 
+            flex-wrap: wrap; 
+        }
+        
+        .footer-links a { 
+            color: var(--green-abeto); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.1rem;
+        }
+        
+        .footer-links a:hover { 
+            color: var(--red-navidad); 
+            text-decoration: underline; 
+        }
+
+        .developer-badge {
+            display: inline-block;
+            background: var(--bg-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(20px) translateY(10px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { padding: 3rem 1.5rem; gap: 2rem; text-align: center; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-mockup img { max-width: 260px; margin-top: 2rem; }
+            .features-section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sección Principal -->
+    <div class="hero">
+        <div class="hero-text">
+            <!-- Imagen del Logo -->
+            <img src="../images/logo_app.png" alt="Logo Travesuras del Elfo" class="logo-img">
+            <h1>Travesuras del Elfo</h1>
+            <p>La guía definitiva para padres. Más de 50 ideas organizadas, planificador automático y 100% libre de estrés para unas mañanas mágicas.</p>
+            <a href="#descarga" class="download-btn" onclick="alert('La app estará disponible en breve en el App Store.')">Próximamente en el App Store</a>
+        </div>
+        <div class="hero-mockup">
+            <!-- Imagen del Mockup -->
+            <img src="../images/mockup_iphone.jpg" alt="Mockup de la App en iPhone">
+        </div>
+    </div>
+
+    <!-- Sección de Funcionalidades -->
+    <div class="features-section">
+        <h2>La magia de la Navidad, en tu bolsillo</h2>
+        <p>Todo lo que necesitas para sobrevivir al mes de diciembre, organizado en una interfaz limpia y pensada para usarse en menos de 5 minutos.</p>
+
+        <div class="features-grid">
+            <!-- Tarjeta 1 -->
+            <div class="feature-card">
+                <!-- Imagen de Categorías -->
+                <img src="../images/screenshot_home.png" alt="Categorías de Travesuras">
+                <h3>Ideas Listas para Usar</h3>
+                <p>Navega por categorías visuales: fáciles, con comida, divertidas o mágicas. Encuentra la inspiración perfecta en segundos.</p>
+            </div>
+            
+            <!-- Tarjeta 2 -->
+            <div class="feature-card">
+                <!-- Imagen de Calendario -->
+                <img src="../images/magic_calendar.png" alt="Calendario Mágico">
+                <h3>Planificador Automático</h3>
+                <p>Asigna travesuras a todo el mes con un solo toque y evita repetir ideas gracias a nuestro calendario inteligente.</p>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="feature-card">
+                <!-- Imagen de Favoritos -->
+                <img src="../images/screenshot_fav.png" alt="Pantalla de Favoritos">
+                <h3>Paso a Paso Detallado</h3>
+                <p>Descubre qué materiales necesitas, el tiempo de preparación y el nivel de desorden antes de empezar la travesura.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="terms.html">Términos y Condiciones</a>
+            <a href="legal.html">Aviso Legal</a>
+        </div>
+        <div class="developer-badge">
+            👨‍💻 Desarrollado con cariño por Francisco M. Cazalla
+        </div>
+    </footer>
+
+</body>
+</html>
